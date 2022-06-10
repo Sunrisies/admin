@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const service  = axios.create({
-    baseURL:'https://api.shop.eduwork.cn/',
+const service = axios.create({
+    baseURL: '/api',
 
 })
 
-export default service;
+export default service
