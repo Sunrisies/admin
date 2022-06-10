@@ -1,0 +1,24 @@
+{
+  "name": "shop-admin",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.4",
+    "@vueuse/core": "^8.6.0",
+    "axios": "^0.27.2",
+    "element-plus": "^2.2.5",
+    "vue": "^3.2.25",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.9",
+    "vite-plugin-windicss": "^1.8.4",
+    "windicss": "^3.5.4"
+  }
+}
