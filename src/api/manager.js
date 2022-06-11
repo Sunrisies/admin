@@ -6,4 +6,8 @@ export function login(email, password) {
         email,
         password
     })
+};
+
+export function getinfo(){
+    return axios.get('/api/admin/user')
 }

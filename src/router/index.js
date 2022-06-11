@@ -1,6 +1,6 @@
 import { createRouter,createWebHashHistory } from "vue-router";
 
-import Index from '~/pages/index.vue';
+import Index from '~/layout/index.vue';
 import NotFound from '~/pages/404.vue'
 
 const routes = [

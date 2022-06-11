@@ -4,7 +4,7 @@
       <div class="w-1/5 mt-20">
         <div>
           <img
-            src="http://localhost:8001/src/assets/images/account-logo.png"
+            src="https://naive-ui-admin.vercel.app/assets/account-logo.0a6f895e.png"
             alt=""
           />
         </div>
@@ -34,6 +34,7 @@
             </el-form-item>
             <el-form-item class="mt-10">
               <el-button type="primary" @click="submitForm" class="w-full"
+						 :loading="loading"
                 >登 入</el-button
               >
             </el-form-item>
@@ -46,16 +47,23 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { login } from '~/api/manager.js'
+import {ElMessage} from 'element-plus'
+import {useRouter} from 'vue-router'
+import { useStore } from 'vuex'
 
 //定义邮箱跟密码
 const form = reactive({
   email: '',
   password: '',
 })
+//点击按钮的初始化
+let loading = ref(false)
 
 const RefInput = ref(null)
 
+const router = useRouter()
+const store = useStore()
+//表单验证
 const rules = {
   email: [
     {
@@ -77,14 +85,18 @@ const submitForm = () => {
     if (!valid) {
       return false
     }
+	loading.value = true;
     //调用等入的api获取token
-    login(form.email, form.password)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+	  store.dispatch('login',form).then(res => {
+		  ElMessage({
+			  message: '登入成功',
+			  type: 'success',
+		  })
+		  //跳转到后台首页
+		  router.push('/')
+	  }).finally(() => {
+		  loading.value = false
+	  })
   })
 }
 </script>
