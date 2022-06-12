@@ -1,29 +1,29 @@
-import { createRouter,createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router"
 
-import Index from '~/layout/index.vue';
+import Index from '~/layout/index.vue'
 import NotFound from '~/pages/404.vue'
 
 const routes = [
     {
-        path:'/',
-        name:'index',
-        component:Index
+        path: '/',
+        name: 'index',
+        component: Index
     },
-    { 
-        path: '/login', 
-        name: 'login', 
-        component: () => import('~/pages/login/index.vue'), 
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('~/pages/login/index.vue'),
     },
-    { 
-        path: '/:pathMatch(.*)*', 
-        name: 'NotFound', 
-        component: NotFound 
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound
     },
-];
+]
 
 const router = createRouter({
-    history:createWebHashHistory(),
+    history: createWebHashHistory(),
     routes
-}) 
+})
 
-export default router;
+export default router

@@ -1,6 +1,5 @@
-import axios from 'axios'
+import axios from '~/axios'
 
-export function getMenu(){
-	console.log(111)
+export function getMenu() {
 	return axios.get('/api/admin/menus')
 }
