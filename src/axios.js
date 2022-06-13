@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ElMessage } from "element-plus"
+import {  ElMessage } from "element-plus"
 import { getToken } from '~/composables/auth.js'
 
 const service = axios.create({
@@ -8,11 +8,14 @@ const service = axios.create({
 
 // 添加请求拦截器
 service.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
     //获取token
     const token = getToken()
     //如果有登入自动传token
     if (token) {
+        // if(diffTokenTime){
+        //     store.dispatch('logout')
+        //     return Promise.reject(new Error('token 失效了'))
+        // }
         config.headers.Authorization = 'Bearer ' + token
     }
     return config
@@ -43,7 +46,5 @@ service.interceptors.response.use(function (response) {
     })
     return Promise.reject(error)
 })
-
-
 
 export default service

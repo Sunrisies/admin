@@ -89,7 +89,7 @@ const submitForm = () => {
     //调用等入的api获取token
 	  store.dispatch('login',form).then(res => {
 		  ElMessage({
-			  message: '登入成功',
+			  message: '登入成功,即将进入系统',
 			  type: 'success',
 		  })
 		  //跳转到后台首页
